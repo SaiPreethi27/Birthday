@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday 🎉</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap');
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:#fff;font-family:Inter,Arial,sans-serif;overflow-x:hidden;
+ background:radial-gradient(circle at 15% 15%,#6d4160 0,transparent 34%),
+            radial-gradient(circle at 90% 80%,#263c68 0,transparent 38%),
+            linear-gradient(135deg,#17192e,#28223d);
+}
+.stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px}
+.card{
+ width:min(1000px,100%);padding:38px;border-radius:32px;
+ background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.14);
+ box-shadow:0 30px 90px rgba(0,0,0,.35);backdrop-filter:blur(16px);
+ opacity:0;transform:translateY(28px) scale(.98);transition:1s ease .2s
+}
+.card.show{opacity:1;transform:none}
+.opening{
+ position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+ background:#111326;text-align:center;transition:.8s
+}
+.opening.hide{opacity:0;visibility:hidden}
+.opening h1{font-size:clamp(34px,7vw,68px);margin:10px 0;font-weight:800}
+.opening p{opacity:.65;margin-bottom:24px}
+.openbtn{border:0;border-radius:30px;padding:14px 24px;font-weight:800;font-size:16px;cursor:pointer}
+.kicker{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.55}
+h1.title{
+ font-family:Pacifico,cursive;text-align:center;font-size:clamp(48px,8vw,78px);margin:8px 0 6px;
+ background:linear-gradient(90deg,#ffd166,#ff8fab,#8fc9ff);
+ -webkit-background-clip:text;color:transparent
+}
+.subtitle{text-align:center;font-size:17px;opacity:.8;margin:0 0 30px}
+.grid{display:grid;grid-template-columns:330px 1fr;gap:36px;align-items:center}
+@media(max-width:750px){.grid{grid-template-columns:1fr}.card{padding:25px}}
+.photo-wrap{position:relative;text-align:center}
+.photo{
+ width:290px;height:365px;object-fit:cover;border-radius:28px;
+ border:4px solid rgba(255,255,255,.72);box-shadow:0 20px 55px rgba(0,0,0,.4)
+}
+.interests{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:-18px;position:relative}
+.tag{
+ background:rgba(18,20,39,.92);border:1px solid rgba(255,255,255,.16);
+ padding:9px 13px;border-radius:20px;font-size:12px;font-weight:700
+}
+.message{
+ padding:30px;border-radius:25px;background:rgba(5,7,20,.2);
+ border:1px solid rgba(255,255,255,.09)
+}
+.message h2{margin:0 0 15px;font-size:28px}
+.message p{font-size:16px;line-height:1.75;color:rgba(255,255,255,.83);margin:0 0 15px}
+.engineer{
+ display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:18px;
+ background:rgba(255,255,255,.08);font-size:13px;font-weight:700;margin-top:3px
+}
+.sign{text-align:center;margin-top:28px;font-size:17px;font-weight:700}
+.footer{text-align:center;margin-top:18px;font-family:Pacifico,cursive;font-size:24px;
+ background:linear-gradient(90deg,#ffd166,#ff8fab,#8fc9ff);
+ -webkit-background-clip:text;color:transparent}
+.replay{text-align:center;margin-top:15px}
+.replay button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+ color:#fff;border-radius:20px;padding:9px 15px;cursor:pointer}
+.balloon{position:fixed;bottom:-80px;width:28px;height:36px;border-radius:50%;z-index:60;
+ animation:rise 4s linear forwards;pointer-events:none}
+.balloon:after{content:"";position:absolute;left:50%;top:34px;height:70px;width:1px;background:#ffffff55}
+@keyframes rise{to{transform:translate(var(--drift),-120vh) rotate(12deg);opacity:.15}}
+.conf{position:fixed;width:8px;height:14px;z-index:65;animation:burst 1.2s ease-out forwards}
+@keyframes burst{from{transform:translate(-50%,-50%) rotate(0);opacity:1}
+to{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="opening" id="opening">
+ <div>
+  <div style="font-size:58px">🎁</div>
+  <h1>Venkat, a little birthday surprise...</h1>
+  <p>For a brilliant engineer and an all-round sports enthusiast.</p>
+  <button class="openbtn" onclick="openCard()">Open your birthday card ✨</button>
+ </div>
+</div>
+
+<div class="stage">
+ <section class="card" id="card">
+  <div class="kicker">A special wish for you</div>
+  <h1 class="title">Happy Birthday! 🎉</h1>
+  <p class="subtitle">Wishing you a fantastic day and an even better year ahead!</p>
+
+  <div class="grid">
+   <div class="photo-wrap">
+    <img class="photo" src="teammate.jpg" alt="Birthday teammate">
+    <div class="interests">
+      <span class="tag">🏸 Badminton</span>
+      <span class="tag">💪 Gym</span>
+      <span class="tag">🏏 Cricket</span>
+    </div>
+   </div>
+
+   <div class="message">
+    <h2>Have an amazing birthday! 🥳</h2>
+    <p>
+      Wishing you lots of happiness, good health, great moments and plenty of
+      reasons to smile in the year ahead.
+    </p>
+    <p>
+      Keep doing what you do best — bringing your engineering mind to work,
+      your energy to the gym, and your competitive spirit to the court and the field. 😄
+    </p>
+    <p>
+      Hope this year brings you many memorable moments, exciting adventures
+      and everything you've been working towards.
+    </p>
+    <div class="engineer">👨‍💻 Engineer by profession • 🏸🏏💪 Sports by passion</div>
+   </div>
+  </div>
+
+  <div class="sign">Enjoy your day to the fullest! 🎂</div>
+  <div class="footer">— Your LPL Team ❤️</div>
+  <div class="replay"><button onclick="celebrate()">Replay celebration 🎈</button></div>
+ </section>
+</div>
+
+<script>
+const colors=["#ff6b9d","#ffd166","#72ddf7","#a78bfa","#7ee081","#ff9f68"];
+function balloon(){
+ const b=document.createElement("div");b.className="balloon";
+ b.style.left=Math.random()*100+"vw";
+ b.style.background=colors[Math.floor(Math.random()*colors.length)];
+ b.style.setProperty("--drift",(Math.random()*180-90)+"px");
+ b.style.animationDuration=(3.2+Math.random()*2)+"s";
+ document.body.appendChild(b);setTimeout(()=>b.remove(),6500);
+}
+function confetti(){
+ for(let i=0;i<90;i++){
+  const c=document.createElement("div");c.className="conf";
+  c.style.left="50vw";c.style.top="42vh";
+  c.style.background=colors[Math.floor(Math.random()*colors.length)];
+  const a=Math.random()*Math.PI*2,r=100+Math.random()*430;
+  c.style.setProperty("--x",Math.cos(a)*r+"px");
+  c.style.setProperty("--y",Math.sin(a)*r+"px");
+  document.body.appendChild(c);setTimeout(()=>c.remove(),1500);
+ }
+}
+function celebrate(){
+ document.getElementById("card").classList.add("show");
+ for(let i=0;i<20;i++)setTimeout(balloon,i*85);
+ setTimeout(confetti,450);
+}
+function openCard(){
+ document.getElementById("opening").classList.add("hide");
+ celebrate();
+}
+</script>
+</body>
+</html>
